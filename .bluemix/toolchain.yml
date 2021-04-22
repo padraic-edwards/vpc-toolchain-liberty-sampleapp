@@ -12,7 +12,8 @@ toolchain:
 services:
   # Github repos hostedgit
   repo:
-    service_id: githubpublic
+    service_id: >
+      $env.source_provider ? $env.source_provider : 'github_integrated'
     parameters:
       source_repo_url: "https://github.com/IBM-Cloud/vpc-toolchain-liberty-sampleapp"
       repo_name: "{{toolchain.name}}"
